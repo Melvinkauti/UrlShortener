@@ -22,7 +22,7 @@ class Urls(db.Model):
 
     # constructor
 
-    def __int__(self, long, short):
+    def __init__(self, long, short):
         self.long = long
         self.short = short
 
@@ -69,7 +69,7 @@ def display_short_url(url):
     return render_template('shorturl.html', short_url_display=url)
 
 
-@app.route('/<shorturl>')
+@app.route('/<short_url>')
 def redirection(short_url):
     long_url = Urls.query.filter_by(short=short_url).first()
     if long_url:
