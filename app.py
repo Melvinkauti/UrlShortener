@@ -69,7 +69,7 @@ def display_short_url(url):
     return render_template('shorturl.html', short_url_display=url)
 
 
-@app.route('/<short_url>')
+@app.route('/<shorturl>')
 def redirection(short_url):
     long_url = Urls.query.filter_by(short=short_url).first()
     if long_url:
